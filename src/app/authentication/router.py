@@ -2,6 +2,8 @@ from fastapi import APIRouter, Depends
 from src.app.authentication.dependencies import get_current_user
 from src.configuration.env_settings import setting
 from src.app.authentication import service as auth_service
+from src.app.authentication.schemas.auth_schema import AuthSchema, RegisterSchema, ResetPasswordSchema
+from src.configuration.sql_config import get_db
 
 router = APIRouter(
     prefix="/auth",
@@ -15,8 +17,8 @@ async def login():
 
 
 @router.post("/register")
-async def register():
-    return await auth_service.register()
+async def register(payload: RegisterSchema, db=Depends(get_db)):
+    return await auth_service.register(pyload=payload, db=db)
 
 
 @router.post("/logout")
