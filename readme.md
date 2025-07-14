@@ -1,5 +1,7 @@
-<!-- Project Structure  -->
+<!-- Project Structure -->
 
+```
+.
 ├── main.py
 ├── readme.md
 ├── requirements.txt
@@ -76,3 +78,5 @@
 │       └── web_socket.py
 ├── static
 ├── templates
+
+```
