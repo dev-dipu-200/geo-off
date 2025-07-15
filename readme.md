@@ -81,3 +81,10 @@
 ├── static # Stores uploaded files (images, docs, etc.)
 ├── templates # HTML templates (invoices, PDFs, emails)
 ```
+
+## Celery Worker Run
+celery -A src.worker.celery_config.celery_app worker --loglevel=info
+
+
+## Celery Beat Run
+celery -A src.worker.celery_config.celery_app beat --loglevel=info

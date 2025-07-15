@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends
-from src.app.authentication.dependencies import get_current_user
-from src.configuration.env_settings import setting
+# from src.app.authentication.dependencies import get_current_user
+# from src.configuration.env_settings import setting
 from src.app.authentication import service as auth_service
 from src.app.authentication.schemas.auth_schema import AuthSchema, RegisterSchema, ResetPasswordSchema
 from src.configuration.sql_config import get_db

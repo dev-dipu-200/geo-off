@@ -1,4 +1,4 @@
-from src.models.schemas import User
+from src.models.user_model import User
 
 
 async def verify_token(token: str) -> bool:

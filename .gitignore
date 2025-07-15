@@ -18,3 +18,7 @@
 *.idea
 *.egg
 *.swp
+
+*.bak
+*.dat
+*.dir

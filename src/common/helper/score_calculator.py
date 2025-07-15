@@ -1,5 +1,5 @@
 from typing import List, Dict
-from src.utils.regex_checker import contains_gambling_activity
+from src.common.utils.validation import contains_gambling_activity
 
 
 def weighted_score(scores: List[float], weights: List[float]) -> float:
