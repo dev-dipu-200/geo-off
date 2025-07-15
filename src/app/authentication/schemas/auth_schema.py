@@ -1,6 +1,7 @@
 from pydantic import BaseModel, EmailStr, Field
-from typing import Optional
+from typing import Optional, List
 from src.common.enums.role_enum import UserRole
+from datetime import datetime as Datetime
 
 
 class AuthSchema(BaseModel):
@@ -54,6 +55,8 @@ class UserSchema(BaseModel):
     phone_number: Optional[str] = None
     is_active: Optional[bool] = None
     role: Optional[UserRole] = None
+    created_at: Optional[Datetime] = None
+    updated_at: Optional[Datetime] = None
 
     class Config:
         from_attributes=True

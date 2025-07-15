@@ -33,7 +33,7 @@ async def generate_csv(db=None, header: Optional[list] = None, filename: str = "
     Generate a CSV report of all users.
     """
     if header is None:
-        header = ["id", "email"]
+        header = ["id", "email", 'first_name', 'last_name', 'is_active', 'role', 'created_at', 'updated_at']
 
     users = await get_all_users(db=db, is_paginate=False)
     data = [user.dict() for user in users.data]
