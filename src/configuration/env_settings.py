@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 from functools import lru_cache
 load_dotenv(".env")
 
-@lru_cache()
+# @lru_cache()
 class Settings:
     HOST: str = os.getenv("HOST", "localhost")
     PORT: int = int(os.getenv("PORT", 8000))
@@ -11,6 +11,10 @@ class Settings:
     DATABASE_URL: str = os.getenv("DATABASE_URL", "postgresql+psycopg2://user:password@localhost/dbname")
     MONGO_URL: str = os.getenv("MONGO_URL", "mongodb://localhost:27017")
     SECRET_KEY: str = os.getenv("SECRET_KEY", "test")
+    # OutLook
+    OUTLOOK_TENANT_ID: str = os.getenv("OUTLOOK_TENANT_ID", "")
+    OUTLOOK_CLIENT_ID: str = os.getenv("OUTLOOK_CLIENT_ID", "")
+    OUTLOOK_CLIENT_SECRET: str = os.getenv("OUTLOOK_CLIENT_SECRET", "")
 
     ALLOWED_HOSTS: list = os.getenv("ALLOWED_HOSTS", "").split(",") if os.getenv("ALLOWED_HOSTS") else []
     API_VERSION: str = os.getenv("API_VERSION", "v1")

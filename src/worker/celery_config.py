@@ -27,6 +27,11 @@ celery_app.conf.beat_schedule = {
         "schedule": crontab(minute="*"), # Every minute
         "args": ()
     },
+    "run-voucher-parse_outlook-every-minute": {
+        "task": "src.app.voucher.tasks.parse_outlook_emails",
+        "schedule": crontab(minute="*"), # Every minute
+        "args": ()
+    },
     "run-user-task-test-every-5-minutes": {
         "task": "src.app.users.tasks.user_task_test",
         "schedule": crontab(minute="*/5"), # Every 5 minutes
@@ -37,6 +42,7 @@ celery_app.conf.beat_schedule = {
         "schedule": crontab(minute="*/10"), # Every 10 minutes
         "args": ()
     },
+    
     "run-another-task-every-hour": {
         "task": "src.app.some_other_module.some_task",
         "schedule": crontab(minute=0, hour="*"), # Every hour
