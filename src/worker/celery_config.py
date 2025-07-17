@@ -43,16 +43,16 @@ celery_app.conf.beat_schedule = {
         "args": ()
     },
     
-    "run-another-task-every-hour": {
-        "task": "src.app.some_other_module.some_task",
-        "schedule": crontab(minute=0, hour="*"), # Every hour
-        "args": ()
-    },
-    "run-daily-task-at-midnight": {
-        "task": "src.app.another_module.daily_task",
-        "schedule": crontab(minute=0, hour=0), # Every day at midnight
-        "args": ()
-    }
+    # "run-another-task-every-hour": {
+    #     "task": "src.app.some_other_module.some_task",
+    #     "schedule": crontab(minute=0, hour="*"), # Every hour
+    #     "args": ()
+    # },
+    # "run-daily-task-at-midnight": {
+    #     "task": "src.app.another_module.daily_task",
+    #     "schedule": crontab(minute=0, hour=0), # Every day at midnight
+    #     "args": ()
+    # }
 }
 
 # Example task

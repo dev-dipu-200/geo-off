@@ -15,6 +15,7 @@ class Settings:
     OUTLOOK_TENANT_ID: str = os.getenv("OUTLOOK_TENANT_ID", "")
     OUTLOOK_CLIENT_ID: str = os.getenv("OUTLOOK_CLIENT_ID", "")
     OUTLOOK_CLIENT_SECRET: str = os.getenv("OUTLOOK_CLIENT_SECRET", "")
+    OUTLOOK_TARGET_USER = os.getenv("OUTLOOK_TARGET_USER", "dipu.s@devtrust.biz")
 
     ALLOWED_HOSTS: list = os.getenv("ALLOWED_HOSTS", "").split(",") if os.getenv("ALLOWED_HOSTS") else []
     API_VERSION: str = os.getenv("API_VERSION", "v1")
