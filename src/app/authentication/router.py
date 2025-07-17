@@ -4,6 +4,7 @@ from src.app.authentication.schemas.auth_schema import AuthSchema, RegisterSchem
 from src.common.response import ResponseModel
 from src.configuration.sql_config import get_db
 
+
 router = APIRouter(
     prefix="/auth",
     tags=["Authentication"],
@@ -15,7 +16,7 @@ async def login(payload: AuthSchema, db=Depends(get_db)):
     response = await auth_service.login(payload=payload, db=db)
     return ResponseModel(
         message="Login successful",
-        data=response
+        result=response
     )
 
 

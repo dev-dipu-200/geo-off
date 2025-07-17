@@ -8,15 +8,16 @@ class Settings:
     HOST: str = os.getenv("HOST", "localhost")
     PORT: int = int(os.getenv("PORT", 8000))
     DEBUG: bool = os.getenv("DEBUG", "False").lower() in ("true", "1", "yes")
-    DATABASE_URL: str = os.getenv("DATABASE_URL", "postgresql+psycopg2://user:password@localhost/dbname") # postgresql+psycopg2://user:password@localhost/dbname
+    DATABASE_URL: str = os.getenv("DATABASE_URL", "postgresql+psycopg2://user:password@localhost/dbname")
     MONGO_URL: str = os.getenv("MONGO_URL", "mongodb://localhost:27017")
     SECRET_KEY: str = os.getenv("SECRET_KEY", "test")
+
     ALLOWED_HOSTS: list = os.getenv("ALLOWED_HOSTS", "").split(",") if os.getenv("ALLOWED_HOSTS") else []
     API_VERSION: str = os.getenv("API_VERSION", "v1")
     LOG_LEVEL: str = os.getenv("LOG_LEVEL", "INFO")
     CORS_ORIGINS: list = os.getenv("CORS_ORIGINS", "").split(",") if os.getenv("CORS_ORIGINS") else []
     RATE_LIMIT: str = os.getenv("RATE_LIMIT", "100/hour")
-    JWT_ALGORITHM: str = os.getenv("JWT_ALGORITHM", "HS256")
+    JWT_ALGORITHM: str = os.getenv("ALGORITHM", "HS256")
     JWT_EXPIRATION: int = int(os.getenv("JWT_EXPIRATION", 3600))
     EMAIL_HOST: str = os.getenv("EMAIL_HOST", "smtp.example.com")
     EMAIL_PORT: int = int(os.getenv("EMAIL_PORT", 587))
@@ -44,25 +45,5 @@ class Settings:
             "uvicorn.access": {"level": LOG_LEVEL, "handlers": ["console"], "propagate": True},
         },
     }
-
-    @classmethod
-    def from_env(cls):
-        return cls()
-
-    @property
-    def database_url(self):
-        return self.DATABASE_URL    
-    @property
-    def email_settings(self):
-        return {
-            "host": self.EMAIL_HOST,
-            "port": self.EMAIL_PORT,
-            "use_tls": self.EMAIL_USE_TLS,
-            "user": self.EMAIL_HOST_USER,
-            "password": self.EMAIL_HOST_PASSWORD,
-        }  
-    @property
-    def redis_url(self):
-        return self.REDIS_URL
     
 setting = Settings()

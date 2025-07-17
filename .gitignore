@@ -22,3 +22,6 @@
 *.bak
 *.dat
 *.dir
+
+test.py
+*.pem
